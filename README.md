@@ -61,47 +61,47 @@ npm run build
 
 #### 业务流程图
 
- ![image](https://github.com/qpzj/nine_shop/images-folder/流程图.png)
+ ![image](https://github.com/qpzj/nine_shop/tree/master/images-folder/流程图.png)
 
 #### 前端
 
 - 登陆
 
- ![image](https://github.com/qpzj/nine_shop/images-folder/登陆.png)
+ ![image](https://github.com/qpzj/nine_shop/tree/master/images-folder/登陆.png)
 
- ![image](https://github.com/qpzj/nine_shop/images-folder/注册.png)
+ ![image](https://github.com/qpzj/nine_shop/tree/master/images-folder/注册.png)
 
 - 首页
 
-![image](https://github.com/qpzj/nine_shop/images-folder/首页.png)
+![image](https://github.com/qpzj/nine_shop/tree/master/images-folder/首页.png)
 
-![image](https://github.com/qpzj/nine_shop/images-folder/商品详情.png)
+![image](https://github.com/qpzj/nine_shop/tree/master/images-folder/商品详情.png)
 
 - 商品分类
 
-![image](https://github.com/qpzj/nine_shop/images-folder/分类.png)
+![image](https://github.com/qpzj/nine_shop/tree/master/images-folder/分类.png)
 
-![image](https://github.com/qpzj/nine_shop/images-folder/分类1.png)
+![image](https://github.com/qpzj/nine_shop/tree/master/images-folder/分类1.png)
 
 - 商品详情
 
-![image](https://github.com/qpzj/nine_shop/images-folder/评论.png)
+![image](https://github.com/qpzj/nine_shop/tree/master/images-folder/评论.png)
 
-![image](https://github.com/qpzj/nine_shop/images-folder/购物车.png)
+![image](https://github.com/qpzj/nine_shop/tree/master/images-folder/购物车.png)
 
 - 个人信息
 
-![image](https://github.com/qpzj/nine_shop/images-folder/修改个人信息.png)
+![image](https://github.com/qpzj/nine_shop/tree/master/images-folder/修改个人信息.png)
 
-![image](https://github.com/qpzj/nine_shop/images-folder/地址编辑.png)
+![image](https://github.com/qpzj/nine_shop/tree/master/images-folder/地址编辑.png)
 
-![image](https://github.com/qpzj/nine_shop/images-folder/多地址切换.png)
+![image](https://github.com/qpzj/nine_shop/tree/master/images-folder/多地址切换.png)
 
 - 订单历史
 
-![image](https://github.com/qpzj/nine_shop/images-folder/订单历史.png)
+![image](https://github.com/qpzj/nine_shop/tree/master/images-folder/订单历史.png)
 
-![image](https://github.com/qpzj/nine_shop/images-folder/订单历史2.png)
+![image](https://github.com/qpzj/nine_shop/tree/master/images-folder/订单历史2.png)
 
 
 
@@ -109,28 +109,28 @@ npm run build
 
 - 首页
 
-![image](https://github.com/qpzj/nine_shop/images-folder/后台首页.png)
+![image](https://github.com/qpzj/nine_shop/tree/master/images-folder/后台首页.png)
 
 - 商品管理
 
-![image](https://github.com/qpzj/nine_shop/images-folder/商品管理.png)
+![image](https://github.com/qpzj/nine_shop/tree/master/images-folder/商品管理.png)
 
-![image](https://github.com/qpzj/nine_shop/images-folder/商品评价.png)
+![image](https://github.com/qpzj/nine_shop/tree/master/images-folder/商品评价.png)
 
 - 分类管理
 
-![image](https://github.com/qpzj/nine_shop/images-folder/分类列表.png)
+![image](https://github.com/qpzj/nine_shop/tree/master/images-folder/分类列表.png)
 
-![image](https://github.com/qpzj/nine_shop/images-folder/子分类列表.png)
+![image](https://github.com/qpzj/nine_shop/tree/master/images-folder/子分类列表.png)
 
 - 公告管理
 
-![image](https://github.com/qpzj/nine_shop/images-folder/广告列表.png)
+![image](https://github.com/qpzj/nine_shop/tree/master/images-folder/广告列表.png)
 
-![image](https://github.com/qpzj/nine_shop/images-folder/广告列表2.png)
+![image](https://github.com/qpzj/nine_shop/tree/master/images-folder/广告列表2.png)
 
 - 订单管理
 
-![image](https://github.com/qpzj/nine_shop/images-folder/订单列表.png)
+![image](https://github.com/qpzj/nine_shop/tree/master/images-folder/订单列表.png)
 
-![image](https://github.com/qpzj/nine_shop/images-folder/消费列表.png)
+![image](https://github.com/qpzj/nine_shop/tree/master/images-folder/消费列表.png)
