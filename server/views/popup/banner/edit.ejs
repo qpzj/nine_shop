@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+<%- include('../../common/head'); %>
+
+<body>
+    <div class="layui-fluid">
+        <div class="layui-row">
+            <form class="layui-form" action="toEdit" method="post">
+
+                   
+                <input type="hidden" name="id" value="<%=banner.id%>">
+              
+                <div class="layui-form-item">
+                    <label for="L_phone" class="layui-form-label">
+                        广告名：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="L_phone" name="name" required="" lay-verify="price" step="0.1"  autocomplete="off"
+                            class="layui-input" value="<%=banner.name%>">
+                        </div>
+                </div>
+                <div class="layui-form-item">
+                        <label for="L_phone" class="layui-form-label">
+                            备注：</label>
+                        <div class="layui-input-inline">
+                        <textarea name="description" id="" cols="30" value="<%=banner.description%>" rows="10"><%=banner.description%></textarea>
+                            </div>
+                    </div>
+                <div class="layui-form-item">
+                    <label for="L_repass" class="layui-form-label"></label>
+                    <button class="layui-btn" lay-filter="updataInfo" lay-submit="">修改</button></div>
+            </form>
+        </div>
+    </div>
+    
+<script>
+        layui.use('form', function() {
+        var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
+     
+        //……
+     
+     
+    
+        //但是，如果你的HTML是动态生成的，自动渲染就会失效
+        //因此你需要在相应的地方，执行下述方法来手动渲染，跟这类似的还有 element.init();
+        form.render();
+        });
+    </script>
+</body>
+
+</html>

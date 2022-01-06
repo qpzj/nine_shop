@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+<%- include('../../common/head'); %>
+
+<body>
+    <div class="layui-fluid">
+        <div class="layui-row">
+            <form class="layui-form" action="toEdit" method="post">
+                    <input type="hidden" name="id" value="<%=cat.id%>">
+                    <input type="hidden" name="topic_img_id" value="<%=cat.topic_img_id%>">
+                    <div class="layui-form-item">
+                            <label class="layui-form-label">上传图片</label>
+                            <div class="layui-input-inline">
+                                <div class="layui-upload">
+                                    <input type="hidden" name="file" value="" id="logo">
+                                    <div class="layui-upload-list">
+                                        <img class="layui-upload-img" src="<%=cat.img.url%>" id="demo1" width="80px" height="80px">
+                                        <p id="demoText"></p>
+                <input type="hidden" name="url" id="image"  value="<%=cat.img.url%>">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                <div class="layui-form-item">
+                    <label for="L_nick_name" class="layui-form-label">
+                        分类名称</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="L_nick_name" name="name" 
+                        required="" lay-verify="name"
+                            autocomplete="off" class="layui-input" value="<%=cat.name%>"></div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="L_phone" class="layui-form-label">
+                        备注名称</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="L_phone" name="description" required="" lay-verify="price" step="0.1"  autocomplete="off"
+                            class="layui-input" value="<%=cat.description%>">
+                        </div>
+                </div>
+            
+                <div class="layui-form-item">
+                    <label for="L_repass" class="layui-form-label"></label>
+                    <button class="layui-btn" lay-filter="updataInfo" lay-submit="">修改</button></div>
+            </form>
+        </div>
+    </div>
+    
+<script>
+        layui.use('form', function() {
+        var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
+     
+        //……
+     
+        layui.use(['laydate', 'laypage', 'layer', 'table', 'carousel', 'upload', 'element'], function () {
+        var layer = layui.layer, upload = layui.upload, $ = layui.$, demoText = $('#demoText');
+       var url= 'http://'+window.location.host
+     
+        //普通图片上传
+        var uploadInst = upload.render({
+            elem: '#demo1',
+            url:url+'/api/v1/public/upload',//这里填写你的上传地址
+            accept: 'images',
+            method: 'post',
+            acceptMime: 'image/*'
+            , before: function (obj) {
+                /*如果您不想用上面的URL 进行上传,也可以在这里,添加你的上传方式*/
+                obj.preview(function (index, file, result) {
+                    $('#demo1').attr('src', result);//图片链接（base64）
+                });
+            }, done: function (res) {
+                if (res.code == 200) {//长传成功(具体返回code 看后台是怎么处理的)
+                    return layer.msg('上传失败');
+                    demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+                } else {
+                
+                $('#image').val(res.filename)
+                    layer.msg('图片上传成功!');
+                }
+            }
+            , error: function () {
+                demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+            }
+        });
+        //上传失败监听重试按钮的操作
+        demoText.find('.demo-reload').on('click', function () {
+            uploadInst.upload();
+        });
+    });
+
+        //但是，如果你的HTML是动态生成的，自动渲染就会失效
+        //因此你需要在相应的地方，执行下述方法来手动渲染，跟这类似的还有 element.init();
+        form.render();
+        });
+    </script>
+</body>
+
+</html>

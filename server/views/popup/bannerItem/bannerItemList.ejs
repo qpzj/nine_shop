@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+<%- include('../../common/head'); %>
+
+<body>
+ 
+    <div class="x-nav">
+        <span class="layui-breadcrumb">
+            <a href="bannerItem/add">添加</a>
+           
+        </span>
+        <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" onclick="location.reload()"
+            title="刷新">
+            <i class="layui-icon layui-icon-refresh" style="line-height:30px"></i>
+        </a>
+    </div>
+    <div class="layui-fluid">
+        <div class="layui-row layui-col-space15">
+            <div class="layui-col-md12">
+                <div class="layui-card">
+                    <div class="layui-card-body ">
+                        
+                            <!-- <div class="layui-inline layui-show-xs-block">
+                                    <input type="text" class="layui-input"  placeholder="开始日" name="start" id="start"></div>
+                            <div class="layui-inline layui-show-xs-block">
+                                <input class="layui-input" autocomplete="off" placeholder="截止日" name="end" id="end"></div>
+                           -->  <div class="layui-inline layui-show-xs-block"> 
+                                <input type="text" name="username" id="userName" placeholder="请输入商品名" autocomplete="off" class="layui-input"></div>
+                            <div class="layui-inline">
+                                <button class="layui-btn" id="wbtn">
+                                    <i class="layui-icon">&#xe615;</i></button>
+                            </div>
+                           
+
+                    </div>
+                    <table id="demo" lay-filter="test"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    
+    
+        layui.use('table', function(){
+          var table = layui.table;
+          
+          //第一个实例
+          table.render({
+            elem: '#demo'
+            ,height: 700
+            ,url: '/bannerItem/getAll' //数据接口
+            ,page: true //开启分页
+            ,cols: [[ //表头
+              {field: 'id', title: 'ID', width:80,  sort: true, fixed: 'left'}
+            
+              ,{field: 'url', title: '图片', width:100,templet:function(d){
+                     return "<img src="+d.img.url+" width='35px'/>";
+              }} , {field: 'name', title: '关联的总广告名', width:140,  sort: true,templet:function(d){
+                     return d.banner.name;
+              } }
+              , {field: 'type', title: 'type', width:80,  sort: true, }
+              , {field: 'id', title: '关联商品id', width:110,  sort: true,templet:function(d){
+                     return d.product.id;
+              } }
+            
+              ,{field: 'product', title: '关联商品名称',templet:function(d){
+                     return d.product.summary;
+              }}
+              ,{field: 'product', title: '关联商品图片', width: 120, sort: true,templet:function(d){
+                     return "<img src="+d.product.main_img_url+" width='35px' height='35px'/>";
+              }}
+              ,{field: 'create_time', title: '创建时间'}
+             ,{field: 'id', title: '操作', width:200, sort: true,templet:function(d){
+              return "<a class='layui-btn layui-btn-xs' lay-event='edit' href='bannerItem/edit?id="+d.id+"'>编辑</a>"+
+              "<a class='layui-btn layui-btn-danger layui-btn-xs' lay-event='del' onclick=del("+d.id+") >删除</a>";
+             }}
+      
+            ]], id: 'testReload'
+  , page: true
+  , height: 600
+          });
+          $('#wbtn').click(function () {
+  var inputVal = $('#userName').val()
+  table.reload('testReload', {
+where: {
+   username : inputVal
+  }
+  ,page: {
+   curr: 1
+  }
+  });
+ })
+        });
+        function  del(id){
+            var url = "/bannerItem/toDel?id=" + id;
+            $.get(url,function(data){
+                    layer.msg(data.msg); 
+            }); 
+        }
+        </script>
+
+</html>

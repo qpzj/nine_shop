@@ -1,0 +1,44 @@
+<!doctype html>
+<html class="x-admin-sm">
+<%- include('common/head'); %>
+
+<body class="login-bg">
+    <!-- 登录 -->
+    <link rel="stylesheet" href="/admin/css/login.css">
+    <div class="login layui-anim layui-anim-up">
+        <div class="message">九商管理系统-管理员登录</div>
+        <div id="darkbannerwrap"></div>
+
+        <form method="post" class="layui-form">
+            <input id="user_name" placeholder="用户名" type="text" lay-verify="required" class="layui-input">
+            <hr class="hr15">
+            <input id="password" lay-verify="required" placeholder="密码" type="password" class="layui-input">
+            <hr class="hr15">
+            <input value="登录" id="submit" lay-submit lay-filter="login" style="width:100%;" type="button">
+            <hr class="hr20">
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#submit").click(function () {
+                $.post('http://127.0.0.1:3000/toLogin', {
+                    username: $('#user_name').val(),
+                    password: hex_md5($('#password').val())
+                }, (res) => {
+                    if (res.code == '0') {
+                        layer.msg('登录成功！', { time: 500, icon: 1 }, () => {
+                            window.localStorage.setItem('user',JSON.stringify(res.data))
+                            $(location).attr('href', '/');
+                        })
+                    } else {
+                        layer.msg(res.msg, { time: 500, icon: 2 })
+                    }
+                })
+            });
+        });
+    </script>
+    <!-- 底部结束 -->
+</body>
+
+</html>

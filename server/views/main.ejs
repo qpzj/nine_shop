@@ -1,0 +1,145 @@
+<!doctype html>
+<html class="x-admin-sm">
+<%- include('common/head'); %>
+
+<body>
+    <div class="layui-fluid">
+        <div class="layui-row layui-col-space15">
+            <div class="layui-col-md12">
+                <div class="layui-card">
+                    <div class="layui-card-body ">
+                        <blockquote class="layui-elem-quote">欢迎回来管理员：
+                            <span class="x-red" id="nickname">test</span>！
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md12">
+                <div class="layui-card">
+                    <div class="layui-card-header">数据统计</div>
+                    <div class="layui-card-body ">
+                        <ul class="layui-row layui-col-space10 layui-this x-admin-carousel x-admin-backlog">
+                            <li class="layui-col-md2 layui-col-xs6">
+                                <a href="javascript:;" class="x-admin-backlog-body">
+                                    <h3>会员数量</h3>
+                                    <p>
+                                        <cite id="user">0</cite></p>
+                                </a>
+                            </li>
+                            <li class="layui-col-md2 layui-col-xs6">
+                                <a href="javascript:;" class="x-admin-backlog-body">
+                                    <h3>商品数量</h3>
+                                    <p>
+                                        <cite id="product">0</cite></p>
+                                </a>
+                            </li>
+                            <li class="layui-col-md2 layui-col-xs6">
+                                <a href="javascript:;" class="x-admin-backlog-body">
+                                    <h3>商品评价</h3>
+                                    <p>
+                                        <cite id="comment">0</cite></p>
+                                </a>
+                            </li>
+                            <li class="layui-col-md2 layui-col-xs6">
+                                <a href="javascript:;" class="x-admin-backlog-body">
+                                    <h3>订单数量</h3>
+                                    <p>
+                                        <cite id="order">0</cite></p>
+                                </a>
+                            </li>
+                            <li class="layui-col-md2 layui-col-xs6">
+                                <a href="javascript:;" class="x-admin-backlog-body">
+                                    <h3>总分类</h3>
+                                    <p>
+                                        <cite id="banner">0</cite></p>
+                                </a>
+                            </li>
+                            <li class="layui-col-md2 layui-col-xs6 ">
+                                <a href="javascript:;" class="x-admin-backlog-body">
+                                    <h3>子分类</h3>
+                                    <p>
+                                        <cite id="bannerItem">0</cite></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md12">
+                <div class="layui-card">
+                    <div class="layui-card-header">版本信息</div>
+                    <div class="layui-card-body ">
+                        <table class="layui-table">
+                            <tbody>
+                                <tr>
+                                    <th>1.0版本</th>
+                                    <td>1.0.0</td>
+                                </tr>
+                                <tr>
+                                    <th>服务器地址</th>
+                                    <td>http://119.29.68.237:3000</td>
+                                </tr>
+                                <tr>
+                                    <th>操作系统</th>
+                                    <td>WINDOW</td>
+                                </tr>
+                                <tr>
+                                    <th>运行环境</th>
+                                    <td>NODE.JS</td>
+                                </tr>
+                                <tr>
+                                    <th>MYSQL版本</th>
+                                    <td>5.7</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md12">
+                <div class="layui-card">
+                    <div class="layui-card-header">开发团队</div>
+                    <div class="layui-card-body ">
+                        <table class="layui-table">
+                            <tbody>
+                                <tr>
+                                    <th>版权所有</th>
+                                    <td>无</td>
+                                </tr>
+                                <tr>
+                                    <th>开发者</th>
+                                    <td>青苹竹九(1362044152@qq.com)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <style id="welcome_style"></style>
+            <div class="layui-col-md12">
+                <blockquote class="layui-elem-quote layui-quote-nm">感谢node.js,jquery,本系统由Layui提供技术支持。</blockquote>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+<script>
+    var user = JSON.parse(window.localStorage.getItem("user"));
+
+    $('#nickname').html(user.nickname)
+    $.get("/user/adminCount", function (data, status) {
+        if (data.code == 1) {
+            var aa = data.data
+            document.getElementById('user').innerHTML = aa.user.count
+            document.getElementById('product').innerHTML = aa.product.count
+            document.getElementById('comment').innerHTML = aa.comment.count
+            document.getElementById('order').innerHTML = aa.order.count
+            document.getElementById('banner').innerHTML = aa.banner.count
+            document.getElementById('bannerItem').innerHTML = aa.bannerItem.count
+        }
+
+    });
+</script>
+
+</html>
